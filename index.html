@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tailwind CSS Example</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="script.js"></script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .forecast-card {
+          @apply relative rounded-2xl;
+        }
+
+        .card-content {
+          @apply absolute inset-px rounded-2xl bg-blue-200/30 backdrop-blur-md p-5;
+        }
+
+        .card-shadow {
+          @apply pointer-events-none absolute inset-px rounded-2xl shadow-sm ring-1 ring-black/5;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-blue-400 h-screen overflow-hidden">
+    <img
+      src="https://th.bing.com/th/id/R.069cf185a7daba4caceb8e10e84da46b?rik=H6UDZfO%2b56isFg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f07%2fDownload-Free-Weather-Background.jpg&ehk=JNt8y9ofXKAnT7OCpITBYQSnexCUjI9Hmcb24SZmQrs%3d&risl=&pid=ImgRaw&r=0"
+      alt="Background Image"
+      class="absolute w-screen h-screen object-cover opacity-50"
+    />
+      <div class="mx-auto h-full max-w-2xl max-w-screen px-4 py-4">
+        <div class="h-full grid gap-4 grid-cols-3 grid-rows-11">
+          <div class="relative row-start-1 row-span-5 lg:row-span-11 rounded-2xl">
+            <div class="card-content flex flex-col items-center">
+              <img
+                id="weather-icon"
+                src=""
+                alt="Weather Icon"
+                class="h-80 w-80 mx-auto"
+              />
+              <span class="flex">
+                <p id="temp" class="text-6xl text-white font-extrabold"></p>
+                <p class="text-gray-200 text-4xl mt-2 font-bold">°C</p>
+              </span>
+              <p id="condition" class="text-3xl text-white font-bold mt-5"></p>
+              <p
+                id="description"
+                class="text-md font-semibold text-gray-200 mt-1"
+              ></p>
+              <p class="text-2xl text-gray-700 font-bold mt-10">Today</p>
+              <span class="flex mt-10">
+                <i class="material-icons text-white mt-1 mr-2"> location_on </i>
+                <p id="location" class="text-xl text-gray-100 font-bold"></p>
+              </span>
+            </div>
+            <div class="card-shadow"></div>
+          </div>
+          <div class="relative row-span-3 col-span-2">
+            <div class="relative h-full grid sm:grid-rows-1 sm:grid-rows-3 md:grid-cols-3 md:grid-rows-1 lg:grid-cols-5 md:grid-rows-1 gap-2">
+              <div class="forecast-card">
+                <div class="card-content p-4">
+                  <p class="forecast-day text-gray-200 font-bold"></p>
+                  <img
+                    src=""
+                    alt="Weather Icon"
+                    class="forecast-icon w-25 h-25 mx-auto"
+                  />
+                  <span class="flex justify-between">
+                    <p class="forecast-temp-low text-gray-200 font-bold"></p>
+                    <p class="forecast-temp-high text-gray-200 font-bold"></p>
+                  </span>
+                </div>
+                <div class="card-shadow"></div>
+              </div>
+              <div class="forecast-card">
+                <div class="card-content p-4">
+                  <p class="forecast-day text-gray-200 font-bold"></p>
+                  <img
+                    src=""
+                    alt="Weather Icon"
+                    class="forecast-icon w-25 h-25 mx-auto"
+                  />
+                  <span class="flex justify-between">
+                    <p class="forecast-temp-low text-gray-200 font-bold"></p>
+                    <p class="forecast-temp-high text-gray-200 font-bold"></p>
+                  </span>
+                </div>
+                <div class="card-shadow"></div>
+              </div>
+              <div class="forecast-card">
+                <div class="card-content p-4">
+                  <p class="forecast-day text-gray-200 font-bold"></p>
+                  <img
+                    src=""
+                    alt="Weather Icon"
+                    class="forecast-icon w-25 h-25 mx-auto"
+                  />
+                  <span class="flex justify-between">
+                    <p class="forecast-temp-low text-gray-200 font-bold"></p>
+                    <p class="forecast-temp-high text-gray-200 font-bold"></p>
+                  </span>
+                </div>
+                <div class="card-shadow"></div>
+              </div>
+              <div class="forecast-card hidden lg:block">
+                <div class="card-content p-4">
+                  <p class="forecast-day text-gray-200 font-bold"></p>
+                  <img
+                    src=""
+                    alt="Weather Icon"
+                    class="forecast-icon w-25 h-25 mx-auto"
+                  />
+                  <span class="flex justify-between">
+                    <p class="forecast-temp-low text-gray-200 font-bold"></p>
+                    <p class="forecast-temp-high text-gray-200 font-bold"></p>
+                  </span>
+                </div>
+                <div class="card-shadow"></div>
+              </div>
+              <div class="forecast-card hidden lg:block">
+                <div class="card-content p-4">
+                  <p class="forecast-day text-gray-200 font-bold"></p>
+                  <img
+                    src=""
+                    alt="Weather Icon"
+                    class="forecast-icon w-25 h-25 mx-auto"
+                  />
+                  <span class="flex justify-between">
+                    <p class="forecast-temp-low text-gray-200 font-bold"></p>
+                    <p class="forecast-temp-high text-gray-200 font-bold"></p>
+                  </span>
+                </div>
+                <div class="card-shadow"></div>
+              </div>
+            </div>
+          </div>
+          <div class="relative col-start-2 row-start-5 row-span-1 col-span-2">
+            <p class="text-4xl text-white font-extrabold">Today's Highlights</p>
+          </div>
+          <div class="relative col-start-2 row-start-6 row-span-3 col-span-1">
+            <div class="card-content">
+              <p class="text-gray-200 text-lg">UV Index</p>
+              <p id="uv-value" class="text-white text-4xl font-bold mt-3"></p>
+              <p id="uv-text" class="text-gray-200 mt-2 font-bold"></p>
+              <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+                <div
+                  id="uv-bar"
+                  class="bg-amber-300/80 h-2.5 rounded-full w-[0%]"
+                ></div>
+              </div>
+            </div>
+            <div class="card-shadow"></div>
+          </div>
+          <div class="relative col-start-3 row-start-6 row-span-3 col-span-1">
+            <div class="card-content">
+              <p class="text-gray-200 text-lg">Wind Status</p>
+              <p class="text-white text-4xl font-bold mt-3">
+                <span id="wind-speed"></span>
+                <span class="text-2xl">km/h</span>
+              </p>
+              <div class="flex items-center mt-5">
+                <i
+                  id="wind-arrow"
+                  class="material-icons text-white mr-1 rotate-45"
+                  >navigation</i
+                >
+                <span id="wind-direction" class="text-gray-200"></span>
+              </div>
+            </div>
+
+            <div class="card-shadow"></div>
+          </div>
+          <div class="relative col-start-2 row-start-9 row-span-3 col-span-1">
+            <div class="card-content">
+              <p class="text-gray-200 text-lg">Air Quality</p>
+              <div class="flex items-end mt-2">
+                <p id="aqi-value" class="text-white text-4xl font-bold"></p>
+                <p
+                  id="aqi-text"
+                  class="text-gray-300 ml-2 mb-1 font-medium"
+                ></p>
+              </div>
+              <div class="mt-5">
+                <div class="flex justify-between text-xs text-gray-300 mb-1">
+                  <span>Good</span>
+                  <span>Poor</span>
+                </div>
+                <div class="w-full bg-gray-700/50 rounded-full h-2.5">
+                  <div
+                    id="aqi-bar"
+                    class="bg-orange-400 h-2.5 rounded-full w-[0%]"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="card-shadow"></div>
+          </div>
+          <div class="relative col-start-3 row-start-9 row-span-3 col-span-1">
+            <div class="card-content flex justify-around">
+              <div class="flex flex-col items-center justify-center">
+                <p class="text-gray-200 text-lg">Sunrise</p>
+                <div class="flex items-center mt-1">
+                  <i class="material-icons text-yellow-400 mr-2">wb_sunny</i>
+                  <p id="sunrise" class="text-white text-2xl font-bold"></p>
+                </div>
+              </div>
+              <div class="h-4/5 self-center w-px bg-white/30"></div>
+              <div class="flex flex-col items-center justify-center">
+                <p class="text-gray-200 text-lg">Sunset</p>
+                <div class="flex items-center mt-1">
+                  <i class="material-icons text-orange-400 mr-2">nights_stay</i>
+                  <p id="sunset" class="text-white text-2xl font-bold"></p>
+                </div>
+              </div>
+            </div>
+            <div class="card-shadow"></div>
+          </div>
+        </div>
+>
+    </div>
+  </body>
+</html>
