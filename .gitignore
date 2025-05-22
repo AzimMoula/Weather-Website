@@ -1,4 +1,7 @@
+.gitignore
 .vscode/
 old_index.html
+new_index.html
+test.html
 old_script.js
 images/
